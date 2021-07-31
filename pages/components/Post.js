@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "react-datocms";
 import Link from "next/link";
 
 const Post = ({ post }) => {
@@ -6,12 +6,7 @@ const Post = ({ post }) => {
     <article className="w-full text-gray-700 bg-gray-100 flex justify-center items-center py-8 px-6">
       <div>
         <figure>
-          <Image
-            src={post.coverImage.responsiveImage.src}
-            width={600}
-            height={300}
-            alt={post.title}
-          />
+          <Image data={post.coverImage.responsiveImage} alt={post.title}/>
         </figure>
         <h3 className="text-blue-600 font-bold">#{post.category.name}</h3>
         <section className="flex">
@@ -23,7 +18,9 @@ const Post = ({ post }) => {
           <section className="w-full flex flex-col justify-between">
             <article className="bg-red-400 text-center p-4">
               <Link href={`/post/${post.slug}`}>
-                <a className="font-extrabold text-gray-600 text-xl hover:text-gray-800">Read</a>
+                <a className="font-extrabold text-gray-600 text-xl hover:text-gray-800">
+                  Read
+                </a>
               </Link>
             </article>
 

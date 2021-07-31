@@ -1,8 +1,8 @@
-import { useContext, useEffect } from "react";
-import { SEOContext } from "./components/context/SEOContext";
 import Post from "./components/Post";
 import { request } from "./lib/datoCms";
 import { HOMEPAGE_QUERY } from "../query/query";
+import Head from "next/head";
+import { renderMetaTags } from "react-datocms";
 
 export const getStaticProps = async () => {
   const data = await request({
@@ -18,16 +18,14 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ data }) {
-  console.log(data);
-
-  const { handleSetTitle } = useContext(SEOContext);
-  useEffect(() => {
-    handleSetTitle(data.blog.seo.title);
-  }, []);
+  const { allPosts, blog, site } = data;
 
   return (
     <section>
-      {data.allPosts.map((post) => (
+      <Head>
+        {renderMetaTags(blog.seo.concat(site.favicon))}
+      </Head>
+      {allPosts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
     </section>

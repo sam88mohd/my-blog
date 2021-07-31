@@ -1,12 +1,9 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
-import { SEOContext } from "./context/SEOContext";
 
 const Navbar = () => {
   const menu = useRef(null);
   const [isActive, setIsActive] = useState(false);
-  const { title } = useContext(SEOContext);
 
   const onClick = () => {
     setIsActive(!isActive);
@@ -28,9 +25,6 @@ const Navbar = () => {
 
   return (
     <header>
-      <Head>
-        <title>{title}</title>
-      </Head>
       <nav className="bg-white shadow">
         <div className="container px-6 py-3 mx-auto md:flex md:justify-between md:items-center">
           <div className="flex items-center justify-between">

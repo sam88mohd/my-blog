@@ -14,15 +14,51 @@ export const HOMEPAGE_QUERY = `query HomePage ($limit: IntType) {
         value
       }
       coverImage {
-        responsiveImage {
+        responsiveImage(imgixParams: { fit: crop, w: 600, h: 300, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
           src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
         }
       }
     }
+    site: _site {
+      favicon: faviconMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
     blog {
-      seo {
-        description
-        title
+      seo: _seoMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+  }
+  `;
+
+export const SEO = `
+  query SEO {
+    site: _site {
+      favicon: faviconMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+    blog {
+      seo: _seoMetaTags {
+        attributes
+        content
+        tag
       }
     }
   }
@@ -44,4 +80,4 @@ export const POST = `query POST($slug: String) {
       slug
     }
   }
-`
+`;
