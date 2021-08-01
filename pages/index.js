@@ -1,5 +1,5 @@
-import Post from "./components/Post";
-import { request } from "./lib/datoCms";
+import Post from "../components/Post";
+import { request } from "../lib/datoCms";
 import { HOMEPAGE_QUERY } from "../query/query";
 import Head from "next/head";
 import { renderMetaTags } from "react-datocms";

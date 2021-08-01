@@ -1,4 +1,4 @@
-import { request } from "../lib/datoCms";
+import { request } from "../../lib/datoCms";
 import { HOMEPAGE_QUERY, POST } from "../../query/query";
 import { renderMetaTags, StructuredText } from "react-datocms";
 import Head from "next/head";
