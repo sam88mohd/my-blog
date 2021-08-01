@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.1",
+    "datocms-structured-text-utils": "^1.2.0",
     "graphql-request": "^3.5.0",
     "next": "11.0.1",
     "react": "17.0.2",

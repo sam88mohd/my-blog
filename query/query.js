@@ -45,27 +45,13 @@ export const HOMEPAGE_QUERY = `query HomePage ($limit: IntType) {
   }
   `;
 
-export const SEO = `
-  query SEO {
-    site: _site {
-      favicon: faviconMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
-    blog {
+export const POST = `query POST($slug: String) {
+    post(filter: {slug: {eq: $slug}}) {
       seo: _seoMetaTags {
         attributes
         content
         tag
       }
-    }
-  }
-  `;
-
-export const POST = `query POST($slug: String) {
-    post(filter: {slug: {eq: $slug}}) {
       content {
         value
         blocks {
@@ -78,6 +64,13 @@ export const POST = `query POST($slug: String) {
       }
       title
       slug
+    }
+    blog {
+      seo: _seoMetaTags {
+        attributes
+        content
+        tag
+      }
     }
   }
 `;

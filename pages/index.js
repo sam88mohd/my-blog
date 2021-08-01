@@ -13,6 +13,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       data,
+      revalidate: 60,
     },
   };
 };
@@ -22,9 +23,7 @@ export default function Home({ data }) {
 
   return (
     <section>
-      <Head>
-        {renderMetaTags(blog.seo.concat(site.favicon))}
-      </Head>
+      <Head>{renderMetaTags(blog.seo.concat(site.favicon))}</Head>
       {allPosts.map((post) => (
         <Post key={post.id} post={post} />
       ))}

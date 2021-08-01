@@ -11,12 +11,12 @@ const Post = ({ post }) => {
         <h3 className="text-blue-600 font-bold">#{post.category.name}</h3>
         <section className="flex">
           <section className="w-3/5 py-4">
-            <h2 className="md:text-xl font-extrabold pr-4 pb-4 border-b-2 border-gray-600">
+            <h2 className="md:text-xl h-full font-extrabold pr-4 pb-4 border-b-2 border-gray-600">
               {post.title}
             </h2>
           </section>
           <section className="w-full flex flex-col justify-between">
-            <article className="bg-red-400 text-center p-4">
+            <article className="bg-red-400 text-center py-4 ml-8">
               <Link href={`/post/${post.slug}`}>
                 <a className="font-extrabold text-gray-600 text-xl hover:text-gray-800">
                   Read

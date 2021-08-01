@@ -65,9 +65,6 @@ const Navbar = () => {
             <Link href="/">
               <a className="my-1 text-gray-700 md:mx-4 md:my-0">Home</a>
             </Link>
-            <Link href="/post">
-              <a className="my-1 text-gray-700 md:mx-4 md:my-0">Next Post</a>
-            </Link>
             <Link href="/share">
               <a className="my-1 text-gray-700 md:mx-4 md:my-0">Share</a>
             </Link>

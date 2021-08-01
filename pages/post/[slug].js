@@ -1,6 +1,7 @@
 import { request } from "../lib/datoCms";
 import { HOMEPAGE_QUERY, POST } from "../../query/query";
-import { StructuredText } from "react-datocms";
+import { renderMetaTags, StructuredText } from "react-datocms";
+import Head from "next/head";
 
 export const getStaticPaths = async () => {
   const data = await request({
@@ -39,11 +40,12 @@ export const getStaticProps = async (context) => {
 
 const PostDetails = ({ post }) => {
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gray-100 pb-8 min-h-screen">
+      <Head>{renderMetaTags(post.seo)}</Head>
       <section className="p-4 w-4/5 m-auto text-gray-700">
-        <h1 className="p-4 font-bold text-3xl">{post.title}</h1>
+        <h1 className="p-4 font-bold text-3xl text-center">{post.title}</h1>
         <hr />
-        <section className="p-4 ">
+        <section className="p-4 prose m-auto prose-blue">
           <StructuredText
             data={post.content}
             renderBlock={({ record }) => {
